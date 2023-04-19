@@ -12,8 +12,17 @@
 export PATH="$PATH:$(go env GOPATH)/bin"
 ```
 
-## Initialize project
+- In VS Code, install plugin `vscode-proto3`
 
-- Run `go mod init github.com/XiaozhouCui/grpc-go-app` to create go project
+## Initialize project folder
+
+- Create and go to folder `grpc-go-app`
+- Run `go mod init github.com/XiaozhouCui/grpc-go-app` to init go project
 - Run `go mod tidy`
 - Run `git init` to init repo
+
+## Create Greet project
+
+- Create file _greet/proto/dummy.proto_
+- Generate Go code from proto file
+- Run `protoc -Igreet/proto --go_out=. --go_opt=module=github.com/XiaozhouCui/grpc-go-app --go-grpc_out=. --go-grpc_opt=module=github.com/XiaozhouCui/grpc-go-app greet/proto/dummy.proto`
