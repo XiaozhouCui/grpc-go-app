@@ -21,9 +21,16 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 - Run `go mod tidy`
 - Run `git init` to init repo
 
-## Create Greet project
+## Create dummy protocol buffer Go files from proto
 
 - Create file _greet/proto/dummy.proto_
 - Generate Go code from proto file
 - Run `protoc -Igreet/proto --go_out=. --go_opt=module=github.com/XiaozhouCui/grpc-go-app --go-grpc_out=. --go-grpc_opt=module=github.com/XiaozhouCui/grpc-go-app greet/proto/dummy.proto`
-- To make CLI easier, create a Makefile and run `make greet`, will do the same
+- To make CLI easier, create a Makefile and run `make greet`, will generate the same files
+- To remove the generated files, run `make clean_greet`
+- For help about the Makefile, run `make help`
+- To show system information, run `make about`
+
+## Setup Greet project
+
+- Clean up the dummy files in greet: `make clean_greet`
