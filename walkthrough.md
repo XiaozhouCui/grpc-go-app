@@ -26,3 +26,4 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 - Create file _greet/proto/dummy.proto_
 - Generate Go code from proto file
 - Run `protoc -Igreet/proto --go_out=. --go_opt=module=github.com/XiaozhouCui/grpc-go-app --go-grpc_out=. --go-grpc_opt=module=github.com/XiaozhouCui/grpc-go-app greet/proto/dummy.proto`
+- To make CLI easier, create a Makefile and run `make greet`, will do the same
