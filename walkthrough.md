@@ -31,6 +31,11 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 - For help about the Makefile, run `make help`
 - To show system information, run `make about`
 
-## Setup Greet project
+## Setup Greet server
 
 - Clean up the dummy files in greet: `make clean_greet`
+- Create _greet.proto_, then run `make greet` to generate protocol buffer go files
+- Create _./greet/server/main.go_ to create net server
+- Run `go mod tidy` to install all missing dependencies, generating _go.sum_
+- Run `make greet` again to build the server bin file
+- To start the server, run `./bin/greet/server`, should see "Listening on 0.0.0.0:50051"
