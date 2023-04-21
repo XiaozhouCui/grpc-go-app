@@ -9,7 +9,8 @@
 - Update PATH so that the protoc compiler can find the plugins
 
 ```
-export PATH="$PATH:$(go env GOPATH)/bin"
+export GO_PATH=~/go
+export PATH=$PATH:/$GO_PATH/bin
 ```
 
 - In VS Code, install plugin `vscode-proto3`
@@ -46,3 +47,8 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 - Create _./greet/client/main.go_ to create client
 - Run `make greet` again to build the client bin file
 - Run `./bin/greet/client` to test client, should see no error
+
+## Unary API server implementation
+
+- Update _greet/server/main.go_ to register GreetServiceServer
+- Create _greet/server/greet.go_ to implement rpc endpoints
