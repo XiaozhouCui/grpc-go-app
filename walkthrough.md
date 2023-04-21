@@ -39,3 +39,10 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 - Run `go mod tidy` to install all missing dependencies, generating _go.sum_
 - Run `make greet` again to build the server bin file
 - To start the server, run `./bin/greet/server`, should see "Listening on 0.0.0.0:50051"
+
+## Setup Greet client
+
+- Keep the server running
+- Create _./greet/client/main.go_ to create client
+- Run `make greet` again to build the client bin file
+- Run `./bin/greet/client` to test client, should see no error
