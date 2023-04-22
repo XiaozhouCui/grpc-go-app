@@ -51,4 +51,13 @@ export PATH=$PATH:/$GO_PATH/bin
 ## Unary API server implementation
 
 - Update _greet/server/main.go_ to register GreetServiceServer
-- Create _greet/server/greet.go_ to implement rpc endpoints
+- Create _greet/server/greet.go_ to implement Greet RPC endpoint
+
+## Unary API client implementation
+
+- Update _greet/client/main.go_ to create an instance of greet service client
+- Create _greet/client/greet.go_ to call Greet RPC endpoint
+- Run `make greet` to re-build binary files
+- Run `./bin/greet/server` to start gRPC server
+- Stert a new terminal, run `./bin/greet/client` to call gRPC server
+- Should see "Response from Greet RPC: Hello Joe"
