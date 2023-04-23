@@ -8,11 +8,9 @@ import (
 )
 
 func (s *Server) Sum(ctx context.Context, req *pb.SumRequest) (*pb.SumResponse, error) {
-	log.Println("Sum function was invoked")
-	a := req.FirstNumber
-	b := req.SecondNumber
+	log.Printf("Sum function was invoked with %v\n", req)
 
-	result := a + b
+	result := req.FirstNumber + req.SecondNumber
 
 	res := &pb.SumResponse{
 		SumResult: result,
