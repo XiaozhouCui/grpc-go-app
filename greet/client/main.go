@@ -23,6 +23,7 @@ func main() {
 	// create a greet service client so that we can call Greet RPC endpoint
 	c := pb.NewGreetServiceClient(conn)
 
-	// call the Greet RPC endpoint
-	doGreet(c)
+	// call the Greet RPC endpoints
+	// doGreet(c)
+	doGreetManyTimes(c)
 }
