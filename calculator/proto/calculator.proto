@@ -21,7 +21,16 @@ message PrimesResponse {
   int64 result = 1;
 }
 
+message AvgRequest {
+  int64 number = 1;
+}
+
+message AvgResponse {
+  double result = 1;
+}
+
 service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse);
   rpc Primes(PrimesRequest) returns (stream PrimesResponse);
+  rpc Avg(stream AvgRequest) returns (AvgResponse);
 }
