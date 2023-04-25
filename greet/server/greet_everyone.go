@@ -7,8 +7,8 @@ import (
 	pb "github.com/XiaozhouCui/grpc-go-app/greet/proto"
 )
 
-func (s *Server) GreetEveryone(stream pb.GreetService_GreetEveryoneServer) error {
-	log.Panicln("GreetEveryone function was invoked")
+func (*Server) GreetEveryone(stream pb.GreetService_GreetEveryoneServer) error {
+	log.Println("GreetEveryone function was invoked")
 
 	// infinite loop: keep receiving client stream until EOF
 	for {
