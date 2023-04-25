@@ -25,5 +25,6 @@ func main() {
 
 	// call the Greet RPC endpoints
 	// doGreet(c)
-	doGreetManyTimes(c)
+	// doGreetManyTimes(c)
+	doLongGreet(c)
 }

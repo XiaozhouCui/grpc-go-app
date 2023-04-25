@@ -26,6 +26,8 @@ func (s *Server) LongGreet(stream pb.GreetService_LongGreetServer) error {
 			})
 		}
 
+		log.Printf("Received req: %v\n", req)
+
 		if err != nil {
 			log.Fatalf("Error while reading client stream: %v\n", err)
 		}
