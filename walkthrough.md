@@ -67,3 +67,4 @@ export PATH=$PATH:/$GO_PATH/bin
 - create file _./ssl/ssl.sh_
 - Go to ssl folder, and run `chmod +x ssl.sh` to make file executable
 - Then run `./ssl.sh` to generate certificates and keys
+- Update _./greet/server/main.go_, pass options into `grpc.NewServer()` to apply SSL
