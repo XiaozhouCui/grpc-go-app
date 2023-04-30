@@ -69,3 +69,24 @@ export PATH=$PATH:/$GO_PATH/bin
 - Then run `./ssl.sh` to generate certificates and keys
 - Server: Update _./greet/server/main.go_, pass SSL creds options into `grpc.NewServer()` to apply SSL
 - Client: Update _./greet/client/main.go_, pass SSL creds options into `grpc.Dial()` to apply SSL
+- Run `make greet`, `./bin/greet/server` and then `./bin/greet/client` to test, everything should work as before
+
+## gRPC Reflection (find server functions and services)
+
+- Evans can call gRPC endpoints without client
+- Install Evans CLI: `brew tap ktr0731/evans` then `brew install evans`
+- Validate installation by running `evans`
+- Update _./calculator/server/main.go_ to register reflection
+- Run `make calculator` then start server `./bin/calculator/server`
+- Start evans CLI `evans --host localhost --port 50051 --reflection repl`
+- Inside evans CLI, run `show package` to show calculator package
+- Enter `package calculator` to select the calculator package
+- Enter `show message`, to see messages
+- Enter `show service`, to see services (Sum, Primes, Avg, Max, Sqrt)
+- Select calculator service `service CalculatorService`
+- Unary: Inside CalculatorService, run `call Sum`, then erter `first_number` and `second_number`, then it should return the sumResult
+- Server streamnig: run `call Primes` then enter `number`, it should return the response stream
+- Client streaming: Run `call Avg`, enter multiple inputs, then enter `ctrl + d` to stop stream
+- Bi-directional: run `call Max`, enter multiple inputs, then enter `ctrl + d` to stop stream
+- Error handling: `call Sqrt`, enter a negative number to see error response
+- Enter `exit` to quite Evans CLI
