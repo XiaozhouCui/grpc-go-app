@@ -90,3 +90,10 @@ export PATH=$PATH:/$GO_PATH/bin
 - Bi-directional: run `call Max`, enter multiple inputs, then enter `ctrl + d` to stop stream
 - Error handling: `call Sqrt`, enter a negative number to see error response
 - Enter `exit` to quite Evans CLI
+
+## Setup Blog project
+
+- Create _./blog/docker-compose.yaml_
+- Go to _./blog_, then run `docker-comopse up`, this will run mongo and mongo-express
+- Validate the services by opening `localhost:8081` in borwser
+- Install mongo-go-driver `go get go.mongodb.org/mongo-driver/mongo`
