@@ -97,3 +97,4 @@ export PATH=$PATH:/$GO_PATH/bin
 - Go to _./blog_, then run `docker-comopse up`, this will run mongo and mongo-express
 - Validate the services by opening `localhost:8081` in borwser
 - Install mongo-go-driver `go get go.mongodb.org/mongo-driver/mongo`
+- Run `go mod tidy` to update dependencies

@@ -7,7 +7,7 @@ import (
 
 // BlogItem represents a blog in MongoDB
 type BlogItem struct {
-	ID       primitive.ObjectID `bson:"_id, omitempty"`
+	ID       primitive.ObjectID `bson:"_id,omitempty"`
 	AuthorID string             `bson:"author_id"`
 	Title    string             `bson:"title"`
 	Content  string             `bson:"content"`
