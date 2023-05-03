@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BlogServiceClient interface {
-	CreateBlog(ctx context.Context, in *Blog, opts ...grpc.CallOption) (*Blog, error)
+	CreateBlog(ctx context.Context, in *Blog, opts ...grpc.CallOption) (*BlogId, error)
 	ReadBlog(ctx context.Context, in *BlogId, opts ...grpc.CallOption) (*Blog, error)
 	UpdateBlog(ctx context.Context, in *Blog, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DeleteBlog(ctx context.Context, in *BlogId, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -38,8 +38,8 @@ func NewBlogServiceClient(cc grpc.ClientConnInterface) BlogServiceClient {
 	return &blogServiceClient{cc}
 }
 
-func (c *blogServiceClient) CreateBlog(ctx context.Context, in *Blog, opts ...grpc.CallOption) (*Blog, error) {
-	out := new(Blog)
+func (c *blogServiceClient) CreateBlog(ctx context.Context, in *Blog, opts ...grpc.CallOption) (*BlogId, error) {
+	out := new(BlogId)
 	err := c.cc.Invoke(ctx, "/bolg.BlogService/CreateBlog", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -110,7 +110,7 @@ func (x *blogServiceListBlogsClient) Recv() (*Blog, error) {
 // All implementations must embed UnimplementedBlogServiceServer
 // for forward compatibility
 type BlogServiceServer interface {
-	CreateBlog(context.Context, *Blog) (*Blog, error)
+	CreateBlog(context.Context, *Blog) (*BlogId, error)
 	ReadBlog(context.Context, *BlogId) (*Blog, error)
 	UpdateBlog(context.Context, *Blog) (*emptypb.Empty, error)
 	DeleteBlog(context.Context, *BlogId) (*emptypb.Empty, error)
@@ -122,7 +122,7 @@ type BlogServiceServer interface {
 type UnimplementedBlogServiceServer struct {
 }
 
-func (UnimplementedBlogServiceServer) CreateBlog(context.Context, *Blog) (*Blog, error) {
+func (UnimplementedBlogServiceServer) CreateBlog(context.Context, *Blog) (*BlogId, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateBlog not implemented")
 }
 func (UnimplementedBlogServiceServer) ReadBlog(context.Context, *BlogId) (*Blog, error) {
