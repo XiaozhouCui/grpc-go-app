@@ -13,7 +13,7 @@ import (
 )
 
 func (s *Server) ReadBlog(ctx context.Context, req *pb.BlogId) (*pb.Blog, error) {
-	log.Println("ReadBlog was invoked with %v\n", req)
+	log.Printf("ReadBlog was invoked with %v\n", req)
 
 	// convert string ID (from proto) to MongoDB's ObjectID
 	oid, err := primitive.ObjectIDFromHex(req.Id)
@@ -21,7 +21,7 @@ func (s *Server) ReadBlog(ctx context.Context, req *pb.BlogId) (*pb.Blog, error)
 	if err != nil {
 		return nil, status.Errorf(
 			codes.InvalidArgument,
-			fmt.Sprintf("Cannot parse ID"),
+			"Cannot parse ID",
 		)
 	}
 	// create an empty struct
